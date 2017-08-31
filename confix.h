@@ -1,6 +1,6 @@
 #if !defined(CONFIX_H_)
 
-#include <config.h>
+#include <ndiff/config.h>
 
 #if defined(__NeXT__)
 #undef HAVE_LONG_DOUBLE	/* NeXT compilers recognize it, but library doesn't handle properly, sigh... */

@@ -48,3 +48,6 @@ target_include_directories(ndiff PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/include" "
 if (HAVE_GMP)
     target_link_libraries(ndiff PUBLIC ${GMP_LIBRARY})
 endif ()
+
+install(TARGETS ndiff RUNTIME DESTINATION bin)
+

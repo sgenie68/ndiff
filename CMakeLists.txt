@@ -49,5 +49,5 @@ if (HAVE_GMP)
     target_link_libraries(ndiff PUBLIC ${GMP_LIBRARY})
 endif ()
 
-install(TARGETS ndiff RUNTIME DESTINATION bin)
+install(TARGETS ndiff DESTINATION bin)
 

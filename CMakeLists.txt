@@ -3,7 +3,6 @@
 cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
 project(ndiff-executable VERSION 2.0.0 LANGUAGES C)
 
-message(STATUS "CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 include (CheckIncludeFiles)
 include (CheckTypeSize)
 
@@ -50,6 +49,5 @@ if (HAVE_GMP)
     target_link_libraries(ndiff PUBLIC ${GMP_LIBRARY})
 endif ()
 
-message(STATUS "CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 install(TARGETS ndiff DESTINATION bin)
 

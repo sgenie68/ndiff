@@ -28,11 +28,16 @@ endif ()
 check_type_size("long double" LONG_DOUBLE)
 
 # Check for gmp
-check_include_files(gmp.h HAVE_GMP_H)
-if (HAVE_GMP_H)
+find_path(GMP_INCLUDE_DIR gmp.h)
+if (GMP_INCLUDE_DIR)
     find_library(GMP_LIBRARY gmp)
     if (GMP_LIBRARY)
         set(HAVE_GMP TRUE)
+        add_library(gmp UNKNOWN IMPORTED)
+        set_target_properties(gmp PROPERTIES
+            IMPORTED_LOCATION ${GMP_LIBRARY}
+            INTERFACE_INCLUDE_DIRECTORIES ${GMP_INCLUDE_DIR}
+        )
     endif ()
 endif ()
 
@@ -46,7 +51,7 @@ set(NDIFF_SRCS
 add_executable(ndiff ${NDIFF_SRCS})
 target_include_directories(ndiff PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/include" "${CMAKE_CURRENT_SOURCE_DIR}")
 if (HAVE_GMP)
-    target_link_libraries(ndiff PUBLIC ${GMP_LIBRARY})
+    target_link_libraries(ndiff PUBLIC gmp)
 endif ()
 
 install(TARGETS ndiff DESTINATION bin)

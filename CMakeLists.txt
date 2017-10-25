@@ -42,6 +42,7 @@ if (GMP_INCLUDE_DIR)
 endif ()
 
 # Configure config.h
+string(TIMESTAMP TIMESTAMP "%Y-%m-%d %H:%M")
 set(CONFIG_HDR "${CMAKE_CURRENT_BINARY_DIR}/include/ndiff/config.h")
 configure_file(ndiff_config.h.in.cmake ${CONFIG_HDR})
 

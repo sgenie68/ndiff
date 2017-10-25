@@ -33,4 +33,10 @@
 /* Define if you have the gmp library */
 #cmakedefine01 HAVE_GMP
 
+/* Define the version of ndiff */
+#define VERSION "${PROJECT_VERSION}"
+
+/* Define the date and time of ndiff configuration */
+#define DATE "${TIMESTAMP}"
+
 #endif /* NDIFF_CONFIG_H */

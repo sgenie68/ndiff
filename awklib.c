@@ -51,9 +51,11 @@ static int _c;
 
 #define FREE(p) (void)free((void*)(p))
 
-const char *FILENAME = (const char *)NULL;
-const char *FS = (const char *)NULL;
-const char *RS = (const char *)NULL;
+//A const global variable has internal linkage by default. If you want the variable to have external linkage, 
+//apply the extern keyword to definition as well as to all other declarations in other files
+extern const char *FILENAME = (const char *)NULL;
+extern const char *FS = (const char *)NULL;
+extern const char *RS = (const char *)NULL;
 
 size_t FNR = 0;
 awk_int_t RLENGTH = -1L;
